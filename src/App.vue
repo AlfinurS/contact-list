@@ -1,20 +1,20 @@
 <template>
   <div id="app">
     <main>
-      <router-view></router-view>
+      <Contact></Contact>
     </main>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-
+import Contact from "@/components/Contact.vue";
 export default defineComponent({
   name: "App",
-  components: {},
+  components: {
+    Contact,
+  },
 });
 </script>
 
-<style lang="scss">
-@import "@/assets/scss/style.scss";
-</style>
+<style lang="scss"></style>

@@ -5,7 +5,7 @@ import vue from "@vitejs/plugin-vue";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/vite-shop/",
+  base: "/contact-list/",
   plugins: [vue()],
   resolve: {
     alias: [
