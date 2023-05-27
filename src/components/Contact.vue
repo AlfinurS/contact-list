@@ -63,7 +63,7 @@ import { defineComponent } from "vue";
 import FormContact from "@/components/FormContact.vue";
 import { contactType } from "@/types/common";
 import { contactConst } from "@/constants/common";
-const { csvParse } = await import("d3");
+import { csvParse } from "d3";
 
 export default defineComponent({
   name: "Contact",
