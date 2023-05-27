@@ -46,6 +46,7 @@
       <div class="contact__wrapper">
         <span class="contact__label">E-mail</span>
       </div>
+      <div class="contact__compensator"></div>
     </div>
     <FormContact
       @deleteContact="deleteContact"
@@ -108,17 +109,12 @@ export default defineComponent({
     },
   },
 
-  watch: {
-    search() {
-      console.log(this.filteredContacts);
-    },
-  },
-
   methods: {
     addContact() {
       const newContact: contactType = JSON.parse(JSON.stringify(contactConst));
       newContact.id = Date.now();
       this.contacts.push(newContact);
+      this.saveLocalStorage();
     },
 
     setData(form: contactType) {
@@ -126,6 +122,7 @@ export default defineComponent({
         return item.id === form.id;
       });
       this.contacts[index] = JSON.parse(JSON.stringify(form));
+      this.saveLocalStorage();
     },
 
     deleteContact(form: contactType) {
@@ -133,6 +130,7 @@ export default defineComponent({
         return item.id === form.id;
       });
       this.contacts.splice(index, 1);
+      this.saveLocalStorage();
     },
 
     uploadFile() {
@@ -166,6 +164,7 @@ export default defineComponent({
       });
       this.contacts = [];
       this.contacts = result;
+      this.saveLocalStorage();
       this.file = "";
       this.uploadKey += 1;
     },
@@ -205,6 +204,17 @@ export default defineComponent({
       link.click();
       document.body.removeChild(link);
     },
+
+    saveLocalStorage() {
+      localStorage.setItem("contacts", JSON.stringify(this.contacts));
+    },
+  },
+
+  created() {
+    const value: any = localStorage.getItem("contacts");
+    if (value) {
+      this.contacts = JSON.parse(value);
+    }
   },
 });
 </script>
