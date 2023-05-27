@@ -62,10 +62,10 @@ export default defineComponent({
     return {
       form: {
         id: null,
-        surname: null,
-        name: null,
-        phone: null,
-        email: null,
+        surname: "",
+        name: "",
+        phone: "",
+        email: "",
       } as contactType,
     };
   },
@@ -77,6 +77,12 @@ export default defineComponent({
 
     sendData() {
       this.$emit("sendData", this.form);
+    },
+  },
+
+  watch: {
+    dataProps(newValue) {
+      this.form = newValue;
     },
   },
 
