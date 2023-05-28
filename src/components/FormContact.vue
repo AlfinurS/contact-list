@@ -37,7 +37,7 @@
       />
     </div>
     <div @click="deleteContact" class="button__wrapper-close link">
-      <img src="/close.png" alt="close" width="18" height="18" />
+      <iconDelete></iconDelete>
     </div>
   </div>
 </template>
@@ -45,10 +45,11 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 import { contactType } from "@/types/common";
+import iconDelete from "@/components/icons/iconDelete.vue";
 
 export default defineComponent({
   name: "FormContact",
-  components: {},
+  components: { iconDelete },
   props: {
     dataProps: {
       type: Object as PropType<contactType>,

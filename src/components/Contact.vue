@@ -15,10 +15,12 @@
         <button @click="addContact" class="btn btn-primary">Добавить</button>
         <div class="buttons__wrapp">
           <button @click="download" class="btn btn-plain buttons__download">
-            Скачать
+            Скачать&nbsp;<iconDownload></iconDownload>
           </button>
           <label class="mb-0 w-100" for="file">
-            <div class="btn btn-plain">Загрузить</div>
+            <div class="btn btn-plain">
+              Загрузить &nbsp;<iconUpload></iconUpload>
+            </div>
           </label>
           <input
             :key="uploadKey"
@@ -64,11 +66,15 @@ import FormContact from "@/components/FormContact.vue";
 import { contactType } from "@/types/common";
 import { contactConst } from "@/constants/common";
 import { csvParse } from "d3";
+import iconDownload from "@/components/icons/iconDownload.vue";
+import iconUpload from "@/components/icons/iconUpload.vue";
 
 export default defineComponent({
   name: "Contact",
   components: {
     FormContact,
+    iconDownload,
+    iconUpload,
   },
 
   data() {
